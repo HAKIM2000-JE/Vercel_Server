@@ -35,7 +35,7 @@ app.post('/handleTweets', async (req, res) => {
     // Post the image as a tweet
     const twitterClient = client.readWrite;
   
-    download(body.image, './image.png', async function () {
+    download(body.image, "/tmp/image.png", async function () {
       try {
         const mediaId = await twitterClient.v1.uploadMedia('./image.png');
         await twitterClient.v2.tweet({
