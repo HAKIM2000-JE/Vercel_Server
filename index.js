@@ -35,7 +35,7 @@ app.post('/handleTweets', async (req, res) => {
     // Post the image as a tweet
     const twitterClient = client.readWrite;
   
-    download(body.image, "/tmp/image.png", async function () {
+    download(body.image, "Example", async function () {
       try {
         const mediaId = await twitterClient.v1.uploadMedia('./image.png');
         await twitterClient.v2.tweet({
@@ -57,7 +57,7 @@ function download(uri, filename, callback) {
     // Use your preferred method to download the image
     // For example, using the 'request' module
     request.head(uri, function (err, res, body) {
-      request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+      request(uri).pipe(fs.createWriteStream(`/tmp/${filename}`)).on('close', callback);
     });
   }
   
