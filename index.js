@@ -34,7 +34,7 @@ app.post('/handleTweets', async (req, res) => {
       appKey: process.env.appKey,
       appSecret: process.env.appSecret,
       accessToken: body.credential.accessToken ,
-      accessSecret: body.credential.accessSecret ,
+     accessSecret: body.credential.secretAccesToken ,,
     });
   
     // Post the image as a tweet
