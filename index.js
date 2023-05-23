@@ -3,9 +3,14 @@ const {TwitterApi}= require('twitter-api-v2')
 const request = require("request");
 const fs = require("fs");
 var bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
 const port = 3000;
+
+
+// Enable CORS for all routes
+app.use(cors())
 
 // Define a route
 app.get('/', (req, res) => {
