@@ -26,8 +26,8 @@ app.post('/handleTweets', async (req, res) => {
     console.log(body);
   
     const client = new TwitterApi({
-        appKey: '',
-        appSecret: '',
+      appKey: process.env.appKey,
+      appSecret: process.env.appSecret,
       accessToken: body.credential.accessToken ,
       accessSecret: body.credential.accessSecret ,
     });
